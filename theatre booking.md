@@ -1,0 +1,51 @@
+# python_projects
+#Theatre ticket booking system
+
+
+total_seats = 200
+normal_seats = 100
+recliner_seats = 100
+while True:
+    print("*" *40)
+    print()
+    print("WECOME TO PAPPU CINEMAS")
+    print()
+    print("*"* 40)
+    print("We offer two types of seats:\nNORMAL  RS 200/-\nRECLINER   RS 350/-")
+    print('''
+    Press 1 for NORMAL
+    Press 2 for RECLINER''')
+    total_price = 0
+    while True:
+        choice = int(input("Please enter your choice between 1-2: "))
+
+        if choice == 1:
+            seats = int(input("How many normal seats you want to book? "))
+            total_price += seats*200
+            print("Your current amount is: ",total_price)
+            normal_seats -= seats
+            print("Seats left now after this booking: ",normal_seats)
+
+            combo = input("Do you want to add a combo consisting a pepsi and popcorn worth Rs 250/-? (Y/N):  ")
+            if combo == "Y":
+                total_price+=250
+            print("Your final bill: ",total_price )
+            if combo == "N":
+                print("Thank you! Your final bill is: ",total_price)
+
+        elif choice == 2:
+            seats_r = int(input("How many recliner seats you want to book? "))
+            total_price += seats_r*350
+            print("Your current amount is: ",total_price)
+            recliner_seats -= seats_r
+            print("Seats left now after this booking: ", recliner_seats)
+            combo_r = input("Do you want to add a combo consisting a pepsi and popcorn worth Rs 250/-? (Y/N): " )
+            if combo_r == "Y":
+                total_price+=250
+                print("Your final bill is: ",total_price)
+            if combo_r == "N":
+                print("Your final bill is: ",total_price)
+
+        repeat1 = input("Do you want to book more seats? ")
+        if repeat1 == "No":
+            break

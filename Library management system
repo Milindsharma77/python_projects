@@ -1,0 +1,52 @@
+# Code for Library management system
+
+
+
+books = {"Philosophy":15, "Sociology":20, "Anthropology":10}
+while True:
+        username = input("Enter your name: ")
+        password = input("Enter password: ")
+        print(" ")
+        print(" ")
+        Account_Credentials = {"Tim": "tim#123", "Nichol": "nichol@123", "Jane": "jane$321"}
+        if username in Account_Credentials.keys():
+            if password == Account_Credentials[username]:
+                print("Login Successful")
+
+                while True:
+                    print("*"*40)
+                    print("Welcome to the Central city library",username)
+                    print("*"*40)
+                    print(""" press 1 to issue the books
+                            press 2 to return the books or if you wish to add more books
+                            press 3 to view balance and exit""")
+                    option = int(input("Enter your choice: "))
+                    if option == 1:
+                        print(books)
+                        choice = input("Enter the book you want to choose: ")
+                        if choice in books.keys():
+                            n = int(input("Enter the number of books: "))
+                            if n <= books[choice]:
+                                books[choice] -= n
+
+                            else:
+                                print("We are left with following books ",choice,books[choice])
+                        else:
+                            print("Book is not available",choice)
+
+                    elif option == 2:
+                        p = input("Enter the book you want to return: ")
+                        q = int(input("Enter the number of books: "))
+                        if p in books.keys():
+                            books[p] += q
+                        else:
+                            books[p] = q
+                        print(books)
+                    elif option == 3:
+                        print(books)
+                        print("Thanks for visiting the library ",username)
+                        break
+            else:
+                    print("Incorrect Account credentials")
+        else:
+            print("You are not enrolled in this library")
